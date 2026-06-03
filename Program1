@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+ 
+using namespace std;
+ 
+class Student {
+private:
+    string fio;
+    int cl;
+    char gender;
+ 
+public:
+    Student(string f, int c, char g) : fio(f), cl(c), gender(g) {}
+ 
+    friend void printMaleSixthGraders(Student* s, int count);
+};
+ 
+void printMaleSixthGraders(Student* s, int count) {
+    cout << "Учащиеся 6 класса мужского пола:n";
+    for (int i = 0; i < count; ++i) {
+        if (s[i].cl == 6 && s[i].gender == 'M') {
+            cout << s[i].fio << endl;
+        }
+    }
+}
+ 
+int main() {
+    const int n = 5;
+    Student students[n] = {
+        Student("Иванов И.И.", 6, 'M'),
+        Student("Петрова А.А.", 6, 'F'),
+        Student("Сидоров С.С.", 5, 'M'),
+        Student("Кузнецов П.П.", 6, 'M'),
+        Student("Лебедева Е.Е.", 7, 'F')
+    };
+ 
+    printMaleSixthGraders(students, n);
+ 
+    return 0;
+}
