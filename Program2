@@ -1,0 +1,26 @@
+#include <iostream>
+#include <set>
+#include <string>
+ 
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL,”rus”);
+    string input;
+    getline(cin, input);
+ 
+    set<char> characterSet;
+ 
+    for (char ch : input) {
+        if ((ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '5')) {
+            characterSet.insert(ch);
+        }
+    }
+ 
+    for (char ch : characterSet) {
+        cout << ch << " ";
+    }
+    cout << endl;
+ 
+    return 0;
+}
